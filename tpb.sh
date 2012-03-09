@@ -1,10 +1,10 @@
 #!/bin/bash
 
 read word
-grep $word ~/pbsearch/complete > ~/pbsearch/searchtext
+grep $word ~/tpbsearch/complete > ~/tpbsearch/searchtext
 
-R --no-restore --slave < ~/pbsearch/rsearch.R
+R --no-restore --slave < ~/tpbsearch/tpbsearch.R
 
-rm -rf ~/pbsearch/searchtext
+rm -rf ~/tpbsearch/searchtext
 
 exit

@@ -10,6 +10,8 @@ Your copy of magnet links may look like this:
     
 There may be other values (e.g. the local id of the torrent). The script accepts a subset of the database from 1 string to the whole thing. It then formats it, ranks the torrents by number of seeds and displays the top 6 results as well as a magnet link (not just the hash) for the number one result.
 
+My copy of TPB can be found with `938802790A385C49307F34CCA4C30F80B03DF59` as the magnet hash. If you download that copy you should be able to reproduce my results completely.
+
 The actual searching part is done in the terminal, not in R. So you can be as clever or as literal as you like.
 
 ## Statistics 

@@ -13,9 +13,10 @@ tgrep <- function() {
   tgm <- data.frame(head(tgm[order(as.numeric(tgm[, 3]), decreasing=TRUE),]), stringsAsFactors= FALSE)
   tgm[ , 2] <- paste(format(as.numeric(tgm[, 2])/1024^2, digits = 3, scientific=FALSE), "Mb", sep = " ")
   tgm[ , 3] <- paste(tgm[ , 3], "/", tgm[ , 4], sep = "")
-  tgm <- tgm[, -4]
-  names(tgm) <- c("Title", "Size", "Seeds/Leechers", "Hash")
-  magnet <- paste("magnet:?xt=urn:btih:", tgm[1, "Hash"], sep = "")
+  magnet <- paste("magnet:?xt=urn:btih:", tgm[1, 1], sep = "")
+  names(magnet) <- "Magnet URL of Top Result"
+  tgm <- tgm[, 1:3]
+  names(tgm) <- c("Title", "Size", "Seeds/Leechers")
   closeAllConnections()
   print(tgm)
   print(magnet)

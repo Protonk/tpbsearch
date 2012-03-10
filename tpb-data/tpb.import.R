@@ -1,6 +1,7 @@
 library(stringr)
 
 tpb.loc <- "your file path here"
+tpb.loc.ex <- file.path(getwd(), "tpb.clean.txt")
 
 tpbPrep <- function(location = tpb.loc) {
   tpb.df <- read.table(location, header = FALSE, sep = "|",
@@ -14,6 +15,6 @@ tpbPrep <- function(location = tpb.loc) {
   tpb.df
 }
 
-tpb.0 <- tpbPrep(location)
+tpb.0 <- tpbPrep(location = tpb.loc.ex)
 tpb.1 <- tpb.0[which(tpb.0[, "seed"] != 0 & tpb.0[, "leech"] != 0), ]
 tab.seed <- tabulate(tpb.1[, "seed"])

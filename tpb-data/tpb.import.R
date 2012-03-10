@@ -1,4 +1,5 @@
 library(stringr)
+library(ggplot2)
 
 tpb.loc <- "your file path here"
 tpb.loc.ex <- file.path(getwd(), "tpb.clean.txt")
@@ -18,3 +19,7 @@ tpbPrep <- function(location = tpb.loc) {
 tpb.0 <- tpbPrep(location = tpb.loc.ex)
 tpb.1 <- tpb.0[which(tpb.0[, "seed"] != 0 & tpb.0[, "leech"] != 0), ]
 tab.seed <- tabulate(tpb.1[, "seed"])
+
+qplot(log(tab.seed), log(1:length(tab.seed)), geom = "point") + coord_flip() +
+  scale_x_continuous(name = "Log Peers Seeding") + scale_y_continuous(name = "Log Rank")+
+  opts(title = expression("Rank vs. Absolute number of peers per torrent"))

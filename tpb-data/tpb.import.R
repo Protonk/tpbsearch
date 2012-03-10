@@ -1,7 +1,9 @@
 library(stringr)
 
-tpbPrep <- function() {
-  tpb.df <- read.table("~/tpbsearch/tpb.clean.txt", header = FALSE, sep = "|",
+tpb.loc <- "your file path here"
+
+tpbPrep <- function(location = tpb.loc) {
+  tpb.df <- read.table(location, header = FALSE, sep = "|",
                          nrows = 1641228, quote = "", row.names = NULL, 
                          comment.char = "", colClasses = "character",
                          col.names = c("id", "title", "size", "seed", "leech", "hash"),
@@ -12,6 +14,6 @@ tpbPrep <- function() {
   tpb.df
 }
 
-tpb.0 <- tpbPrep()
+tpb.0 <- tpbPrep(location)
 tpb.1 <- tpb.0[which(tpb.0[, "seed"] != 0 & tpb.0[, "leech"] != 0), ]
 tab.seed <- tabulate(tpb.1[, "seed"])

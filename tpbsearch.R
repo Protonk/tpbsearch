@@ -15,10 +15,10 @@ tgrep <- function() {
   tgm[ , 3] <- paste(tgm[ , 3], "/", tgm[ , 4], sep = "")
   magnet <- paste("magnet:?xt=urn:btih:", tgm[1, 1], sep = "")
   names(magnet) <- "Magnet URL of Top Result"
-  tgm <- tgm[, 1:3]
-  names(tgm) <- c("Title", "Size", "Seeds/Leechers")
+  tgm <- tgm[, -4]
+  names(tgm) <- c("Title", "Size", "Seeds/Leechers", "Hash")
   closeAllConnections()
-  print(tgm)
+  print(tgm, justify = "left")
   print(magnet)
 }
 
